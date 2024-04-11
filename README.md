@@ -5,9 +5,9 @@
 - FMOD Studio [ ? (Unity Verified)](https://www.fmod.com/download)
 
 ## Links
-- Art [Asset List] 
+- Art [Asset List]  [TODO](TODO)
 - Sound Asset List [TODO](TODO)
-- Kanban Board [Development](https://gitlab.com/lordsofmahlstrom/zhdk/production-days-2023-team-whitney-houston/-/boards)
+- Kanban Board [TODO](TODO)
 - Super Behaviour [Documenttaion](https://superbehaviour.lom.li/api/index.html)
 - DoTween [Documentation](https://dotween.demigiant.com/documentation.php)
 
