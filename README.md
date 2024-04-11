@@ -12,7 +12,7 @@
 - DoTween [Documentation](https://dotween.demigiant.com/documentation.php)
 
 ## Diagrams
-- Miro [https://miro.com/app/board/uXjVKY_xCzo=/?share_link_id=326002641749]
+- Miro [Documentation](https://miro.com/app/board/uXjVKY_xCzo=/?share_link_id=326002641749)
 
 
 ## Important Usings
