@@ -2,10 +2,10 @@
 
 ## Versions
 - Unity [2022.3.23f1 (LTS)](unityhub://2022.3.23f1/dbb3f7c5b5c6)
-- FMOD Studio [ ? (Unity Verified)](https://www.fmod.com/download)
+- FMOD Studio [2.02 (Unity Verified)](https://www.fmod.com/download)
 
 ## Links
-- Art [Asset List]  [TODO](TODO)
+- Art [Asset List]  [Documentation](https://docs.google.com/spreadsheets/d/1ZOlA2UKqNCFzyyNiZHvT-X3DLCLqptQ800N0KvuEctg/edit?usp=sharing)
 - Sound Asset List [TODO](TODO)
 - Kanban Board [TODO](TODO)
 - Super Behaviour [Documenttaion](https://superbehaviour.lom.li/api/index.html)
