@@ -8,7 +8,7 @@
 - Art [Asset List]  [Documentation](https://docs.google.com/spreadsheets/d/1ZOlA2UKqNCFzyyNiZHvT-X3DLCLqptQ800N0KvuEctg/edit?usp=sharing)
 - Sound Asset List [TODO](TODO)
 - Kanban Board [TODO](TODO)
-- Super Behaviour [Documenttaion](https://superbehaviour.lom.li/api/index.html)
+- Super Behaviour [Documentation](https://superbehaviour.lom.li/api/index.html)
 - DoTween [Documentation](https://dotween.demigiant.com/documentation.php)
 
 ## Diagrams
