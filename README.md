@@ -21,3 +21,6 @@ using LoM.Super;
 using TMPro;
 using DG.Tweening;
 ```
+## Git Workflow
+- every morning Pull befor starting to work on anything
+- before Pushing on the branch Pull
