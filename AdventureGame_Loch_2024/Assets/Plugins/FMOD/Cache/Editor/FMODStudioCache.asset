@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 3867634175190753605}
   StringsBanks:
   - {fileID: 5622830153136375554}
-  cacheTime: 638490352529682564
+  cacheTime: 638490358603829842
   cacheVersion: 131617
 --- !u!114 &3867634175190753605
 MonoBehaviour:
@@ -38,7 +38,7 @@ MonoBehaviour:
   Path: ../AdventureGame_Loch_FMod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638490352529682564
+  lastModified: 638490358603826570
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -58,7 +58,7 @@ MonoBehaviour:
   Path: ../AdventureGame_Loch_FMod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638490352529682564
+  lastModified: 638490358603829842
   FileSizes:
   - Name: Desktop
     Value: 712
