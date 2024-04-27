@@ -14,7 +14,7 @@ public class LegMovement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    //distance check between the body target and the chainsover target, if it is higher than the threshold the leg will move to a new position
     void Update()
     {
         CheckGround();
@@ -25,6 +25,7 @@ public class LegMovement : MonoBehaviour
         }
     }
 
+    //raycast downward, snap body of the player to the ground
     public void CheckGround()
     {
         RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, Vector3.down, 5, groundLayer);
