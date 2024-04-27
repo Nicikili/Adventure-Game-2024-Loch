@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LegMovement : MonoBehaviour
 {
-	public Transform limbSolverTarget;
+	public Transform chainSolverTarget;
 	public float moveDistance;
     public LayerMask groundLayer;
 	// Start is called before the first frame update
@@ -19,9 +19,9 @@ public class LegMovement : MonoBehaviour
     {
         CheckGround();
 
-        if(Vector2.Distance(limbSolverTarget.position,transform.position) > moveDistance)
+        if(Vector2.Distance(chainSolverTarget.position,transform.position) > moveDistance)
         {
-            limbSolverTarget.position = transform.position;
+            chainSolverTarget.position = transform.position;
         }
     }
 
