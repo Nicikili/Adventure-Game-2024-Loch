@@ -80,6 +80,7 @@ crashlytics-build.properties
 # FMOD files
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
 Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
-Assets\Plugins\FMOD\Cache\Editor\FMODStudioCache.asset
+FMODStudioCache.asset
 Assets/StreamingAssets/*.bank
 fmod_editor.log
+AdventureGame_Loch_2024/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
