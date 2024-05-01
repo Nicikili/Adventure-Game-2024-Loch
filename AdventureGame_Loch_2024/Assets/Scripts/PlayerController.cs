@@ -7,9 +7,14 @@ public class PlayerController : MonoBehaviour
 {
     InputSystem controls;
 
-    private float playerSpeed = 20f; //Player Speed
-    private float playerDirection; //keeps track of the direction we are going
+	private float playerSpeed = 20f; //Player Speed
+	private float jumpingPower = 16f;
+    private float horizontal; //keeps track of the direction we are going
+	private bool isFacingRight = true;
+
     private Rigidbody2D rbPlayer; //is the Rigidbody of our Player
+	[SerializeField] private Transform groundCheck;
+	private LayerMask groundLayer;
 
     void Awake()
     {
@@ -18,8 +23,9 @@ public class PlayerController : MonoBehaviour
 
 		controls.Player.Enable();
 
-		controls.Player.Jump.performed += ctx => Jump();
-        controls.Player.Accept.performed += ctx => Accept();
+		controls.Player.Jump.started += ctx => JumpStart();
+		controls.Player.Jump.canceled += ctx => JumpRelease();
+		controls.Player.Accept.performed += ctx => Accept();
         controls.Player.Move.performed += ctx => Move();
 		#endregion
 
@@ -29,21 +35,56 @@ public class PlayerController : MonoBehaviour
 
     #region Player Controls
 
-    void Jump()
+    void JumpStart()
     {
-        
-    }
+		if (isGrounded())
+		{
+			rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpingPower);
+		}
+	}
+	void JumpRelease()
+	{
+		if (rbPlayer.velocity.y > 0f)
+		{
+			rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, rbPlayer.velocity.y * 0.5f);
+		}
+	}
 
 	void Accept()
 	{
-
+	
 	}
 	void Move()
 	{
 
 	}
 
+	void Flip()
+	{
+		if (!isFacingRight && horizontal < 0f || isFacingRight && horizontal > 0f)
+		{
+			isFacingRight = !isFacingRight;
+			Vector3 localScale = transform.localScale;
+			localScale.x *= -1f;
+			transform.localScale = localScale;
+		}
+	}
 	#endregion
+
+	private void FixedUpdate()
+	{
+		rbPlayer.velocity = new Vector2(horizontal * playerSpeed, rbPlayer.velocity.y);
+		//playerDirection = Input.GetAxisRaw("Horizontal");
+		//float horizontalMovement = playerDirection * playerSpeed * Time.deltaTime;
+		//rbPlayer.velocity = new Vector2(horizontalMovement, rbPlayer.velocity.y);
+
+	}
+	void Update()
+	{
+		horizontal = Input.GetAxisRaw("Horizontal");
+
+		Flip();
+	}
 
 	void OnEnable()
 	{
@@ -54,4 +95,9 @@ public class PlayerController : MonoBehaviour
     {
         controls.Player.Disable();
     }
+
+	bool isGrounded()
+	{
+		return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+	}
 }
