@@ -8,13 +8,13 @@ public class PlayerController : MonoBehaviour
     InputSystem controls;
 
 	private float playerSpeed = 20f; //Player Speed
-	private float jumpingPower = 16f;
+	private float jumpingPower = 26f;
     private float horizontal; //keeps track of the direction we are going
 	private bool isFacingRight = true;
 
     private Rigidbody2D rbPlayer; //is the Rigidbody of our Player
 	[SerializeField] private Transform groundCheck;
-	private LayerMask groundLayer;
+	[SerializeField] private LayerMask groundLayer;
 
     void Awake()
     {
