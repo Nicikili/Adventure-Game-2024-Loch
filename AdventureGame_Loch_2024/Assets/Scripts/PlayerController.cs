@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     InputSystem controls;
 
-	private float playerSpeed = 20f; //Player Speed
-	private float jumpingPower = 26f;
+	[SerializeField] private float playerSpeed = 20f; //Player Speed
+	[SerializeField] private float jumpingPower = 26f;
     private float horizontal; //keeps track of the direction we are going
 	private bool isFacingRight = true;
 
