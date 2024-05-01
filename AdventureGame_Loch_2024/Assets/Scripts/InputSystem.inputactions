@@ -25,12 +25,12 @@
                 },
                 {
                     "name": "Move",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "a6b2b84f-d74d-4468-a41e-96d43055f2da",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -68,59 +68,26 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "b6182c3f-11a8-4eba-a23a-aa64d6994981",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "f7b826e3-93ae-4279-b3c7-f3fa4a6c91fe",
+                    "path": "<XInputController>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "fdf0279f-9293-4bed-9414-38e4c2ce6cbd",
-                    "path": "<XInputController>/dpad/up",
+                    "name": "",
+                    "id": "593b493f-4eff-41b7-87f4-89c1c4392919",
+                    "path": "<XInputController>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "XBox Control Scheme",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "7f0d6761-36bc-4db5-8ecc-65c29cea7387",
-                    "path": "<XInputController>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XBox Control Scheme",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "84426cff-a586-4c87-b779-5993fa23f794",
-                    "path": "<XInputController>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XBox Control Scheme",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "e5786ef4-3e73-415a-8969-d778e54228af",
-                    "path": "<XInputController>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XBox Control Scheme",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         }
