@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Transform groundCheck;
 	[SerializeField] private LayerMask groundLayer;
 
-    void Awake()
+	void Awake()
     {
 		#region Input System
 		controls = new InputSystem();
@@ -69,32 +69,30 @@ public class PlayerController : MonoBehaviour
 			transform.localScale = localScale;
 		}
 	}
+
+	void OnEnable()
+	{
+		controls.Player.Enable();
+	}
+
+	void OnDisable()
+	{
+		controls.Player.Disable();
+	}
 	#endregion
+
 
 	private void FixedUpdate()
 	{
 		rbPlayer.velocity = new Vector2(horizontal * playerSpeed, rbPlayer.velocity.y);
-		//playerDirection = Input.GetAxisRaw("Horizontal");
-		//float horizontalMovement = playerDirection * playerSpeed * Time.deltaTime;
-		//rbPlayer.velocity = new Vector2(horizontalMovement, rbPlayer.velocity.y);
-
 	}
+
 	void Update()
 	{
 		horizontal = Input.GetAxisRaw("Horizontal");
 
 		Flip();
 	}
-
-	void OnEnable()
-	{
-        controls.Player.Enable();
-	}
-    
-    void OnDisable()
-    {
-        controls.Player.Disable();
-    }
 
 	bool isGrounded()
 	{
