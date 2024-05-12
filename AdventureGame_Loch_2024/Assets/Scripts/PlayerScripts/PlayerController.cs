@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static PlayerController;
 
 public class PlayerController : MonoBehaviour
 {
     InputSystem controls;
+	public SpriteHandler ScriptSpriteHandler;
 
-	[SerializeField] private float playerSpeed = 20f; //Player Speed
+		[SerializeField] private float playerSpeed = 20f; //Player Speed
 	[SerializeField] private float jumpingPower = 26f;
     private float horizontal; //keeps track of the direction we are going
 	private bool isFacingRight = true;
@@ -30,12 +33,11 @@ public class PlayerController : MonoBehaviour
 		#endregion
 
 		rbPlayer = GetComponent<Rigidbody2D>(); //Assign Rigidbody Component
+	}
 
-    }
+	#region Player Controls
 
-    #region Player Controls
-
-    void JumpStart()
+	void JumpStart()
     {
 		if (isGrounded())
 		{
@@ -52,8 +54,9 @@ public class PlayerController : MonoBehaviour
 
 	void Accept()
 	{
-	
+		ScriptSpriteHandler.ChangeSprite();
 	}
+
 	void Move()
 	{
 
@@ -81,6 +84,21 @@ public class PlayerController : MonoBehaviour
 	}
 	#endregion
 
+	#region Collisions
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "TalkToNPC")
+		{
+
+		}
+
+		if (other.tag == "NewBodyPart")
+		{
+
+		}
+	}
+	#endregion
 
 	private void FixedUpdate()
 	{

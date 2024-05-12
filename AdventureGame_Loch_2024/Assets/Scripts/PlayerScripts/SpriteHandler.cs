@@ -15,18 +15,29 @@ public class SpriteHandler : MonoBehaviour
 	public SpriteRenderer spriteRendererLegR; //Leg R
 	public Sprite[] spriteArrayLegR;
 
-	void Start()
+	public void Start()
 	{
-		spriteRendererWingL = gameObject.GetComponent<SpriteRenderer>();
-		spriteRendererWingR = gameObject.GetComponent<SpriteRenderer>();
-		spriteRendererLegL = gameObject.GetComponent<SpriteRenderer>();
-		spriteRendererLegR = gameObject.GetComponent<SpriteRenderer>();
+		spriteRendererWingL = gameObject.GetComponentInChildren<SpriteRenderer>();
+		spriteRendererWingR = gameObject.GetComponentInChildren<SpriteRenderer>();
+		spriteRendererLegL = gameObject.GetComponentInChildren<SpriteRenderer>();
+		spriteRendererLegR = gameObject.GetComponentInChildren<SpriteRenderer>();
 	}
-	void ChangeSprite()
+	public void ChangeSprite()
 	{
 		spriteRendererWingL.sprite = spriteArrayWingL[0];
 		spriteRendererWingR.sprite = spriteArrayWingR[0];
 		spriteRendererLegL.sprite = spriteArrayLegL[0];
 		spriteRendererLegR.sprite = spriteArrayLegR[0];
+		Debug.Log("Yee");
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		
+	}
+
+	public void Update()
+	{
+		ChangeSprite();
 	}
 }
