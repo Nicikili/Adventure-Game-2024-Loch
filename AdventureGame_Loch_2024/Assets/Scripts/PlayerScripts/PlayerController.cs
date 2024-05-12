@@ -8,7 +8,7 @@ using static PlayerController;
 public class PlayerController : MonoBehaviour
 {
     InputSystem controls;
-	public SpriteHandler ScriptSpriteHandler;
+	/*public SpriteHandler ScriptSpriteHandler;*/
 
 		[SerializeField] private float playerSpeed = 20f; //Player Speed
 	[SerializeField] private float jumpingPower = 26f;
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
 	void Accept()
 	{
-		ScriptSpriteHandler.ChangeSprite();
+		/*ScriptSpriteHandler.ChangeSprite();*/
 	}
 
 	void Move()
