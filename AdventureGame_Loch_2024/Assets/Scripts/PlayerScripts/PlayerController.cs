@@ -90,12 +90,15 @@ public class PlayerController : MonoBehaviour
 	{
 		if (other.tag == "TalkToNPC")
 		{
-
+			Debug.Log("Talk");
+			Accept();
+			Debug.Log("Talk"); 
 		}
 
 		if (other.tag == "NewBodyPart")
 		{
-
+			Accept();
+			Debug.Log("Unlock");
 		}
 	}
 	#endregion

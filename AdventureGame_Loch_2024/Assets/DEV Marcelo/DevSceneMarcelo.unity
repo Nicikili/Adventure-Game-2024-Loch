@@ -806,6 +806,14 @@ PrefabInstance:
       propertyPath: footDisplacementOnX
       value: 0.08
       objectReference: {fileID: 0}
+    - target: {fileID: 4277353945065503600, guid: 73e6d8a4bfec99541963855cd1ff75be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277353945065503600, guid: 73e6d8a4bfec99541963855cd1ff75be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4311998310190740520, guid: 73e6d8a4bfec99541963855cd1ff75be, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.93
