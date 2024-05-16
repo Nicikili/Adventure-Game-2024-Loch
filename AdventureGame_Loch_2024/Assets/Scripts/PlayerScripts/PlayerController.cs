@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     InputSystem controls;
 	/*public SpriteHandler ScriptSpriteHandler;*/
 
-		[SerializeField] private float playerSpeed = 20f; //Player Speed
+	[SerializeField] private float playerSpeed = 20f; //Player Speed
 	[SerializeField] private float jumpingPower = 26f;
     private float horizontal; //keeps track of the direction we are going
 	private bool isFacingRight = true;
@@ -19,6 +19,13 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Transform groundCheck;
 	[SerializeField] private LayerMask groundLayer;
 
+	private bool isTalking = false;
+	private bool unlockedNewBodyPart = false;
+
+	public Sprite newBodyPartSprite;
+
+	public GameObject Body;
+	public GameObject Wings1;
 	void Awake()
     {
 		#region Input System
@@ -55,6 +62,9 @@ public class PlayerController : MonoBehaviour
 	void Accept()
 	{
 		/*ScriptSpriteHandler.ChangeSprite();*/
+		if (unlockedNewBodyPart == true)
+		{
+		}
 	}
 
 	void Move()
@@ -86,19 +96,39 @@ public class PlayerController : MonoBehaviour
 
 	#region Collisions
 
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "TalkToNPC")
 		{
-			Debug.Log("Talk");
-			Accept();
-			Debug.Log("Talk"); 
+			isTalking = true;
 		}
 
 		if (other.tag == "NewBodyPart")
 		{
-			Accept();
-			Debug.Log("Unlock");
+			unlockedNewBodyPart = true;
+
+			Sprite tempTarget = other.GetComponent<SpriteRenderer>().sprite; //for newBodyParts
+			//Sprite tempTarget = other.GetComponent<SpriteRenderer>().sprite = newBodyPartSprite;
+			Debug.Log(newBodyPartSprite);
+			
+			if (string.Compare (this.GetComponentInChildren<SpriteRenderer>().name, other.GetComponent<SpriteRenderer>().sprite.name) == 0) 
+			{
+				Wings1.SetActive(false);
+				Debug.Log("Hello");
+			}
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D other)
+	{
+		if (other.tag == "TalkToNPC")
+		{
+			isTalking = false;
+		}
+
+		if (other.tag == "NewBodyPart")
+		{
+			unlockedNewBodyPart = false;
 		}
 	}
 	#endregion
@@ -113,6 +143,7 @@ public class PlayerController : MonoBehaviour
 		horizontal = Input.GetAxisRaw("Horizontal");
 
 		Flip();
+		Accept();
 	}
 
 	bool isGrounded()

@@ -1253,6 +1253,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  newBodyPartSprite: {fileID: 0}
+  Body: {fileID: 0}
+  Wings1: {fileID: 0}
 --- !u!70 &5827081553667162484
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
