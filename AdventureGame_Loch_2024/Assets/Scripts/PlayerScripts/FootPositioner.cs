@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class FootPositioner : MonoBehaviour
 {
+	//https://medium.com/@merxon22/recreating-rainworlds-2d-procedural-animation-part-1-4d882f947e9f
+	//https://medium.com/@merxon22/recreating-rain-worlds-2d-procedural-animation-part-2-f5faef82aa50
+
 	[Header("Detecting Balance")]
 	// reference to player character object
 	public GameObject playerObj;
