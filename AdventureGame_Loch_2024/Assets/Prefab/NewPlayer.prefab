@@ -443,10 +443,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  ScriptCapsuleColliderResizer: {fileID: 0}
+  noLegs: 0
   rollDuration: 1
   newBodyPartSprite: {fileID: 0}
-  Body: {fileID: 0}
-  Wings1: {fileID: 0}
 --- !u!70 &6276610622494992808
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -494,12 +494,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e281d50a95c14044b79bbbd27eee3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScriptPlayerController: {fileID: 0}
   capsuleCollider: {fileID: 6276610622494992808}
-  targetSizeX: 2
-  targetSizeY: 1
+  targetSizeX: 7.292746
+  targetSizeY: 7.292746
   duration: 1
   targetObject: {fileID: 1138650291724264359}
+  ScriptPlayerController: {fileID: 0}
 --- !u!1 &1247489011024924332
 GameObject:
   m_ObjectHideFlags: 0

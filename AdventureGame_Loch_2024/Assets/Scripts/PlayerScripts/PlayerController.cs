@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 	private bool isRolling = false;
 	public float rollDuration = 1.0f; // Duration for one complete roll
 
-	public Sprite newBodyPartSprite;
+	public Sprite Body;
 
 	void Awake()
     {
@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
 			{
 				Sprite tempTarget = this.GetComponentInChildren<SpriteRenderer>().sprite = other.GetComponent<SpriteRenderer>().sprite; //for newBodyParts
 																																		//Sprite tempTarget = other.GetComponent<SpriteRenderer>().sprite = newBodyPartSprite;
-				Debug.Log(newBodyPartSprite);
+
 
 				if (string.Compare(this.GetComponentInChildren<SpriteRenderer>().name, other.GetComponent<SpriteRenderer>().sprite.name) == 0)
 				{
