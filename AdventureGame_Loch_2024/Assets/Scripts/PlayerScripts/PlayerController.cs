@@ -79,17 +79,17 @@ public class PlayerController : MonoBehaviour
 
 	void Move()
 	{
-		if (noLegs == true)
-		{
-			StartRolling();
-		}
+	
 	}
 
 	void StartRolling()
 	{
-		transform.DORotate(new Vector3(0, 0, 360), rollDuration, RotateMode.FastBeyond360)
-		.SetRelative()
-		.SetLoops(-1, LoopType.Restart);
+		if (noLegs == true)
+		{
+			transform.DORotate(new Vector3(0, 0, 360), rollDuration, RotateMode.FastBeyond360)
+			.SetRelative()
+			.SetLoops(-1, LoopType.Restart);
+		}
 	}
 
 	private void StopRolling()

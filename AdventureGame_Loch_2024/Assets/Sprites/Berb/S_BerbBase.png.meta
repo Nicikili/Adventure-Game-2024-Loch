@@ -102,7 +102,7 @@ TextureImporter:
     - name: bone_1
       guid: c92d11e44c2b8cc48abaca94afc8a1d8
       position: {x: 1418.8271, y: 793.2683, z: 0}
-      rotation: {x: 0, y: 0, z: 0.70316756, w: 0.71102417}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
       length: 739.4708
       parentId: -1
       color:
