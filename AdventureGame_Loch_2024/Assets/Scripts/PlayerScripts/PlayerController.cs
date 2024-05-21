@@ -27,6 +27,10 @@ public class PlayerController : MonoBehaviour
 
 	public CapsuleCollider2DResizer ScriptCapsuleColliderResizer;
 	[SerializeField] public bool noLegs = true;
+	public GameObject berbBody;
+	public CapsuleCollider2D playerCollider;
+	[SerializeField] public float rollWidth;
+	[SerializeField] public float rollHeight;
 	private bool isRolling = false;
 	public float rollDuration = 1.0f; // Duration for one complete roll
 
@@ -86,7 +90,9 @@ public class PlayerController : MonoBehaviour
 	{
 		if (noLegs == true)
 		{
-			transform.DORotate(new Vector3(0, 0, 360), rollDuration, RotateMode.FastBeyond360)
+			ChangeCollider();
+
+			berbBody.transform.DORotate(new Vector3(0, 0, 360), rollDuration, RotateMode.FastBeyond360)
 			.SetRelative()
 			.SetLoops(-1, LoopType.Restart);
 		}
@@ -95,6 +101,13 @@ public class PlayerController : MonoBehaviour
 	private void StopRolling()
 	{
 		transform.DOKill();
+	}
+
+	private void ChangeCollider()
+	{
+		playerCollider = GetComponent<CapsuleCollider2D>();
+
+		playerCollider.size = new Vector2(rollWidth, rollHeight);
 	}
 
 	void Flip()
