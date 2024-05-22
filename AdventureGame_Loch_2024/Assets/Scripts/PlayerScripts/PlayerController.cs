@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
 		if (isGrounded() && Leg3 == true)
 		{
-			jumpingPower = 74;
+	
 			rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpingPower);
 		}
 	}
