@@ -8,31 +8,8 @@ using UnityEngine.U2D.Animation;
 
 public class SpriteHandler : MonoBehaviour
 {
-	//public GameObject s_BerbBase;
-	//public GameObject s_LegL;
-	//public GameObject s_LegR;
-	public GameObject s_WingL;
-	//public GameObject s_WingR;
-
-	//public GameObject Sprites;
-	//public GameObject IK_Bones;
-
-	//public SpriteResolver bodypartsSpriteResolver;
-
 	public GameObject findSwitchTargetIn;
-
 	public string tagToCompare;
-
-	//https://www.youtube.com/watch?v=wBGykdKd80w&ab_channel=Tarodev
-	private void Start()
-	{
-
-	}
-	
-	private void Update()
-	{
-
-	}
 
 	public void OnTriggerEnter2D(Collider2D other)
 	{
@@ -42,11 +19,9 @@ public class SpriteHandler : MonoBehaviour
 		{
 			if (child.CompareTag(tagToCompare))
 			{
-				Debug.Log("Found A Target!");
 				Sprite tempTarget = child.GetComponent<SpriteRenderer>().sprite = other.GetComponent<SpriteRenderer>().sprite;
 			}
 		}
-		//if (string.Compare(S_LegR.BP_SpriteResovler.Category.Label.name, other.GetComponent<SpriteRenderer>().sprite.name) == 0)
 	}
 
 	public void OnTriggerExit2D(Collider2D other)
