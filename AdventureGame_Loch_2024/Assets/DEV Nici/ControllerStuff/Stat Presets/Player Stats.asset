@@ -22,24 +22,25 @@ MonoBehaviour:
     Height: 12.7
     Width: 9.2
     StepHeight: 3.6
-    CrouchHeight: 6.3500004
+    CrouchHeight: 3.6499999
     RayInset: 0.071
   VerticalDeadZoneThreshold: 0.3
   HorizontalDeadZoneThreshold: 0.1
   PositionCorrectionMode: 0
-  BaseSpeed: 30
+  GroundBaseSpeed: 50
   Acceleration: 100
   Friction: 120
   AirFrictionMultiplier: 1
   DirectionCorrectionMultiplier: 3
   MaxWalkableSlope: 50
+  AirBaseSpeed: 20
   ExtraConstantGravity: 120
   BufferedJumpTime: 0.15
   CoyoteTime: 0.15
   JumpPower: 85
   EndJumpEarlyExtraForceMultiplier: 3
-  MaxAirJumps: 5
-  AllowDash: 1
+  MaxAirJumps: 0
+  AllowDash: 0
   DashVelocity: 120
   DashDuration: 0.1
   DashCooldown: 0.5
