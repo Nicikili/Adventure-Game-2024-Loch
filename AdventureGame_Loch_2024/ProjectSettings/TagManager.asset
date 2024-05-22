@@ -6,6 +6,11 @@ TagManager:
   tags:
   - TalkToNPC
   - NewBodyPart
+  - S_LegL
+  - S_LegR
+  - S_WingR
+  - S_WingL
+  - S_Tongue
   layers:
   - Default
   - TransparentFX

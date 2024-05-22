@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.U2D.Animation;
 using static PlayerController;
 
 public class PlayerController : MonoBehaviour
@@ -36,6 +37,17 @@ public class PlayerController : MonoBehaviour
 
 	public Sprite Body;
 
+	public GameObject S_BerbBase;
+	public GameObject S_LegR;
+	public GameObject S_LegL;
+	public GameObject S_WingL;
+	public GameObject S_WingR;
+	public GameObject S_Tongue;
+
+	[SerializeField] bool Leg1 = false; //High Jump
+	[SerializeField] bool Leg2 = false; //Normal Jump
+	[SerializeField] bool Leg3 = false; //Long Jump
+
 	void Awake()
     {
 		#region Input System
@@ -53,15 +65,27 @@ public class PlayerController : MonoBehaviour
 		#endregion
 
 		rbPlayer = GetComponent<Rigidbody2D>(); //Assign Rigidbody Component
-		ScriptCapsuleColliderResizer = GetComponent<CapsuleCollider2DResizer>();
 	}
 
 	#region Player Controls
 
 	void JumpStart()
     {
-		if (isGrounded())
+		if (isGrounded() && Leg1 == true)
 		{
+			jumpingPower = 38;
+			rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpingPower);
+		}
+
+		if (isGrounded() && Leg2 == true)
+		{
+			jumpingPower = 49;
+			rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpingPower);
+		}
+
+		if (isGrounded() && Leg3 == true)
+		{
+			jumpingPower = 74;
 			rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpingPower);
 		}
 	}
@@ -177,9 +201,9 @@ public class PlayerController : MonoBehaviour
 																																		//Sprite tempTarget = other.GetComponent<SpriteRenderer>().sprite = newBodyPartSprite;
 
 
-				if (string.Compare(this.GetComponentInChildren<SpriteRenderer>().name, other.GetComponent<SpriteRenderer>().sprite.name) == 0)
+				//if (string.Compare(S_LegR.BP_SpriteResovler.Category.Label.name, other.GetComponent<SpriteRenderer>().sprite.name) == 0)
 				{
-					Debug.Log("Hello");
+					//Debug.Log("Hello");
 				}
 			}
 		}
@@ -212,7 +236,7 @@ public class PlayerController : MonoBehaviour
 		CheckForInteraction();
 	}
 
-	bool isGrounded()
+	public bool isGrounded()
 	{
 		return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
 	}
