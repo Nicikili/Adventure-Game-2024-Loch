@@ -80,9 +80,10 @@ public class FootPositioner : MonoBehaviour
 	{
 		// get center of mass in world position
 		float centerOfMass = playerObj.transform.position.x;
-
+		
 		// if center of mass is between two feet, the body is balanced
 		isBalanced = IsFloatInRange(centerOfMass, target.position.x - footDisplacementOnX, otherFoot.target.position.x - otherFoot.footDisplacementOnX);
+		Debug.Log(target.position.x);
 	}
 
 	/// <summary>
@@ -129,5 +130,8 @@ public class FootPositioner : MonoBehaviour
 	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawSphere(endPos, 0.1f);
+
+		Gizmos.color = Color.blue;
+		Gizmos.DrawSphere(playerObj.transform.position, 0.5f);
 	}
 }

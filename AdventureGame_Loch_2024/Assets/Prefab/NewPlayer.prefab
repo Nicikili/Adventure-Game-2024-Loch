@@ -260,8 +260,21 @@ MonoBehaviour:
     m_Bits: 256
   ScriptCapsuleColliderResizer: {fileID: 0}
   noLegs: 0
+  berbBody: {fileID: 0}
+  playerCollider: {fileID: 0}
+  rollWidth: 0
+  rollHeight: 0
   rollDuration: 1
   Body: {fileID: 0}
+  S_BerbBase: {fileID: 0}
+  S_LegR: {fileID: 0}
+  S_LegL: {fileID: 0}
+  S_WingL: {fileID: 0}
+  S_WingR: {fileID: 0}
+  S_Tongue: {fileID: 0}
+  Leg1: 0
+  Leg2: 0
+  Leg3: 0
 --- !u!114 &5991393191329884039
 MonoBehaviour:
   m_ObjectHideFlags: 0

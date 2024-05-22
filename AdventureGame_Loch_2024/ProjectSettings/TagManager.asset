@@ -11,6 +11,9 @@ TagManager:
   - S_WingR
   - S_WingL
   - S_Tongue
+  - collectWing
+  - collectLeg
+  - collectTongue
   layers:
   - Default
   - TransparentFX
