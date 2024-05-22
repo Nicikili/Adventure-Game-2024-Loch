@@ -12235,6 +12235,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: collectWing
       objectReference: {fileID: 0}
+    - target: {fileID: 3432220989036284465, guid: 3e49845d6988d9a449abdd62867cff39, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3917758712548584448, guid: 3e49845d6988d9a449abdd62867cff39, type: 3}
       propertyPath: m_labelHash
       value: 5.0684785e-28
@@ -12459,6 +12463,10 @@ PrefabInstance:
       propertyPath: S_BerbBase
       value: 
       objectReference: {fileID: 1431337524}
+    - target: {fileID: 8829085382267674271, guid: 3e49845d6988d9a449abdd62867cff39, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9142968798312281293, guid: 3e49845d6988d9a449abdd62867cff39, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -12492,7 +12500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c648cc40c1cb78e48b1ea5188b50ab9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s_WingL: {fileID: 0}
   findSwitchTargetIn: {fileID: 1389643364}
   tagToCompare: 
 --- !u!1 &1719561211
