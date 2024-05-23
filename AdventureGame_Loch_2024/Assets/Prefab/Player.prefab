@@ -20421,6 +20421,7 @@ MonoBehaviour:
   <Stats>k__BackingField: {fileID: 11400000, guid: 894dfe33661263b42a8e1490d64c0424, type: 2}
   _drawGizmos: 1
   _grounded: 0
+  _interact: 0
 --- !u!50 &3054942120541986088
 Rigidbody2D:
   serializedVersion: 4
