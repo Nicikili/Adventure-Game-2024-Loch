@@ -42,6 +42,10 @@ namespace TarodevController
         private Vector3 _trailOffset;
         private Vector2 _trailVel;
 
+        private float _lastNonZeroXInput = 1; // Default to 1 to face right initially
+        private bool _isFacingRight = true;
+
+
         public FootPositioner ScriptFootPositioner;
 
         private void Awake()
@@ -254,13 +258,41 @@ namespace TarodevController
                 Vector3.one * inputStrength, 2 * Time.deltaTime);
         }
 
+
+
         private void HandleSpriteFlip(float xInput)
         {
-            if (_player.Input.x != 0) _sprite.flipX = xInput < 0;
+            if (xInput != 0)
+            {
+                _lastNonZeroXInput = xInput;
+            }
 
-            ScriptFootPositioner.footDisplacementOnX = -ScriptFootPositioner.footDisplacementOnX;
-            ScriptFootPositioner.otherFoot.footDisplacementOnX = -ScriptFootPositioner.otherFoot.footDisplacementOnX;
+            bool newFlipXState = _lastNonZeroXInput < 0;
+
+            // Check if the facing direction has changed
+            if ((_isFacingRight && newFlipXState) || (!_isFacingRight && !newFlipXState))
+            {
+                // Update the facing direction
+                _isFacingRight = !_isFacingRight;
+
+                // Flip the local scale
+                Vector3 localScale = transform.parent.localScale;
+                localScale.x *= -1f;
+                transform.parent.localScale = localScale;
+
+                // Toggle the foot displacement values
+                ScriptFootPositioner.footDisplacementOnX = -ScriptFootPositioner.footDisplacementOnX;
+                ScriptFootPositioner.otherFoot.footDisplacementOnX = -ScriptFootPositioner.otherFoot.footDisplacementOnX;
+            }
         }
+        //private void HandleSpriteFlip(float xInput)
+        //{
+        //    if (_player.Input.x != 0) _sprite.flipX = xInput < 0;
+
+        //}
+
+        //ScriptFootPositioner.footDisplacementOnX = -ScriptFootPositioner.footDisplacementOnX;
+        //        ScriptFootPositioner.otherFoot.footDisplacementOnX = -ScriptFootPositioner.otherFoot.footDisplacementOnX;
 
         #endregion
 
