@@ -2,136 +2,112 @@ using UnityEngine;
 
 public class FootPositioner : MonoBehaviour
 {
-	//https://medium.com/@merxon22/recreating-rainworlds-2d-procedural-animation-part-1-4d882f947e9f
-	//https://medium.com/@merxon22/recreating-rain-worlds-2d-procedural-animation-part-2-f5faef82aa50
+    [Header("Detecting Balance")]
+    public GameObject playerObj;
+    public Transform target;
+    public FootPositioner otherFoot;
+    public bool isBalanced;
 
-	[Header("Detecting Balance")]
-	// reference to player character object
-	public GameObject playerObj;
+    [Header("Make a step forward")]
+    public float lerp;
+    private Vector3 startPos;
+    private Vector3 endPos;
+    public float overShootFactor = 0.5f;
+    public float stepSpeed = 3f;
+    public float footDisplacementOnX = 0.25f;
 
-	// reference to IK target
-	public Transform target;
+    [Header("Better Animation")]
+    private Vector3 midPos;
 
-	// reference to the other foot
-	public FootPositioner otherFoot;
+    private bool isJumping = false;
+    private Vector3 initialTargetOffset;
 
-	public bool isBalanced;
+    private void Start()
+    {
+        startPos = midPos = endPos = target.position;
+        initialTargetOffset = target.position - playerObj.transform.position;
+    }
 
-	[Header("Make a step forward")]
-	// used to lerp the foot from its current position to target position
-	public float lerp;
+    private void Update()
+    {
+        UpdateBalance();
+        UpdateJumpState();
 
-	// the start and end position of a step
-	private Vector3 startPos;
-	private Vector3 endPos;
+        bool thisFootCanMove = otherFoot.lerp > 1 && lerp > otherFoot.lerp;
 
-	// how far should we anticipate a step
-	public float overShootFactor = 0.5f;
+        if (!isBalanced && lerp > 1 && thisFootCanMove)
+        {
+            CalculateNewStep();
+        }
 
-	// how fast the foot moves
-	public float stepSpeed = 3f;
+        if (isJumping)
+        {
+            target.position = playerObj.transform.position + initialTargetOffset;
+        }
+        else
+        {
+            float easedLerp = EaseInOutCubic(lerp);
+            target.position = Vector3.Lerp(
+                Vector3.Lerp(startPos, midPos, easedLerp),
+                Vector3.Lerp(midPos, endPos, easedLerp),
+                easedLerp
+            );
+            lerp += Time.deltaTime * stepSpeed;
+        }
+    }
 
-	// the foot's displacement from body center on the X axis
-	public float footDisplacementOnX = 0.25f;
+    private float EaseInOutCubic(float x)
+    {
+        return 1f / (1 + Mathf.Exp(-10 * (x - 0.5f)));
+    }
 
-	[Header("Better Animation")]
-	private Vector3 midPos;
+    private void UpdateBalance()
+    {
+        float centerOfMass = playerObj.transform.position.x;
+        isBalanced = IsFloatInRange(centerOfMass, target.position.x - footDisplacementOnX, otherFoot.target.position.x - otherFoot.footDisplacementOnX);
+    }
 
-	private void Start()
-	{
-		startPos = midPos = endPos = target.position;
-	}
+    bool IsFloatInRange(float value, float bound1, float bound2)
+    {
+        float minValue = Mathf.Min(bound1, bound2);
+        float maxValue = Mathf.Max(bound1, bound2);
+        return value > minValue && value < maxValue;
+    }
 
-	private void Update()
-	{
-		UpdateBalance();
+    private void CalculateNewStep()
+    {
+        startPos = target.position;
+        lerp = 0;
 
-		// this foot can only move when: (1) the other foot finishes moving, (2) the other foot made the last step
-		bool thisFootCanMove = otherFoot.lerp > 1 && lerp > otherFoot.lerp;
+        RaycastHit2D ray = Physics2D.Raycast(playerObj.transform.position + new Vector3(footDisplacementOnX, 0, 0), Vector2.down, 10);
 
-		// if the body is not balanced AND this foot has finished its previous step (we don't want to calculate new steps in the process of moving a foot)
-		if (!isBalanced && lerp > 1 && thisFootCanMove)
-		{
-			CalculateNewStep();
-		}
+        if (ray.collider != null)
+        {
+            Vector3 posDiff = ((Vector3)ray.point - target.position) * (1 + overShootFactor);
+            endPos = target.position + posDiff;
 
-		// using ease in/ease out value will make the animation look more natural
-		float easedLerp = EaseInOutCubic(lerp);
+            float stepSize = Vector3.Distance(startPos, endPos);
+            midPos = startPos + posDiff / 2f + new Vector3(0, stepSize * 0.8f);
+        }
+    }
 
-		// a lerping method that draws an arc using startPos, midPos, and endPos
-		target.position = Vector3.Lerp(
-			Vector3.Lerp(startPos, midPos, easedLerp),
-			Vector3.Lerp(midPos, endPos, easedLerp),
-			easedLerp
-			);
-		lerp += Time.deltaTime * stepSpeed;
-	}
+    private void UpdateJumpState()
+    {
+        // Detect if the player is jumping (this is a simplistic way, consider using your own jump detection logic)
+        isJumping = !Physics2D.Raycast(playerObj.transform.position, Vector2.down, 0.1f);
 
-	/// <summary>
-	/// Smoothly ease in and ease out the input using sigmoid function
-	/// </summary>
-	private float EaseInOutCubic(float x)
-	{
-		return 1f / (1 + Mathf.Exp(-10 * (x - 0.5f)));
-	}
+        if (isJumping)
+        {
+            initialTargetOffset = target.position - playerObj.transform.position;
+        }
+    }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(endPos, 0.1f);
 
-	private void UpdateBalance()
-	{
-		// get center of mass in world position
-		float centerOfMass = playerObj.transform.position.x;
-		
-		// if center of mass is between two feet, the body is balanced
-		isBalanced = IsFloatInRange(centerOfMass, target.position.x - footDisplacementOnX, otherFoot.target.position.x - otherFoot.footDisplacementOnX);
-		Debug.Log(target.position.x);
-	}
-
-	/// <summary>
-	/// returns true if "value" is between "bound1" and "bound2"
-	/// </summary>
-	bool IsFloatInRange(float value, float bound1, float bound2)
-	{
-		float minValue = Mathf.Min(bound1, bound2);
-		float maxValue = Mathf.Max(bound1, bound2);
-		return value > minValue && value < maxValue;
-	}
-
-
-	/// <summary>
-	/// Calculate where the new step should be made
-	/// </summary>
-	private void CalculateNewStep()
-	{
-		// set starting position
-		startPos = target.position;
-
-		// this will make the foot start moving to its target position starting from next frame
-		lerp = 0;
-
-		// find where the foot should land without considering overshoot
-		RaycastHit2D ray = Physics2D.Raycast(playerObj.transform.position + new Vector3(footDisplacementOnX, 0, 0), Vector2.down, 10);
-
-		// consider the overshoot factor
-		Vector3 posDiff = ((Vector3)ray.point - target.position) * (1 + overShootFactor);
-
-		// find end target position
-		endPos = target.position + posDiff;
-
-		// midPos is the mid point between startPos and endPos, but lifted up a bit depending on stepSize
-		float stepSize = Vector3.Distance(startPos, endPos);
-		midPos = startPos + posDiff / 2f + new Vector3(0, stepSize * 0.8f);
-
-	}
-
-	/// <summary>
-	/// This helps visualize the target position in run time
-	/// </summary>
-	private void OnDrawGizmos()
-	{
-		Gizmos.color = Color.red;
-		Gizmos.DrawSphere(endPos, 0.1f);
-
-		Gizmos.color = Color.blue;
-		Gizmos.DrawSphere(playerObj.transform.position, 0.5f);
-	}
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(playerObj.transform.position, 0.5f);
+    }
 }
