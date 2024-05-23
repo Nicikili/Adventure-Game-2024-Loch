@@ -11,6 +11,9 @@ public class SpriteHandler : MonoBehaviour
 	public GameObject findSwitchTargetIn;
 	public string tagToCompare;
 
+	public GameObject IK_BonesTarget;
+	public string spriteNameBodyPart;
+
 	public void OnTriggerEnter2D(Collider2D other)
 	{
 		tagToCompare = other.tag;
@@ -22,6 +25,7 @@ public class SpriteHandler : MonoBehaviour
 				Sprite tempTarget = child.GetComponent<SpriteRenderer>().sprite = other.GetComponent<SpriteRenderer>().sprite;
 			}
 		}
+		spriteNameBodyPart = other.GetComponent<SpriteRenderer>().sprite.name;
 	}
 
 	public void OnTriggerExit2D(Collider2D other)

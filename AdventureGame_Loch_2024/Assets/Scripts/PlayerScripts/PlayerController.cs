@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] bool Leg2 = false; //Normal Jump
 	[SerializeField] bool Leg3 = false; //Long Jump
 
+	public FootPositioner ScriptFootPositioner;
+
 	void Awake()
     {
 		#region Input System
@@ -65,6 +67,8 @@ public class PlayerController : MonoBehaviour
 		#endregion
 
 		rbPlayer = GetComponent<Rigidbody2D>(); //Assign Rigidbody Component
+
+		ScriptFootPositioner = GetComponent<FootPositioner>();
 	}
 
 	#region Player Controls
@@ -142,6 +146,9 @@ public class PlayerController : MonoBehaviour
 			Vector3 localScale = transform.localScale;
 			localScale.x *= -1f;
 			transform.localScale = localScale;
+
+			ScriptFootPositioner.footDisplacementOnX = -ScriptFootPositioner.footDisplacementOnX;
+			ScriptFootPositioner.otherFoot.footDisplacementOnX = -ScriptFootPositioner.otherFoot.footDisplacementOnX;
 		}
 	}
 	#endregion
