@@ -42,6 +42,8 @@ namespace TarodevController
         private Vector3 _trailOffset;
         private Vector2 _trailVel;
 
+        public FootPositioner ScriptFootPositioner;
+
         private void Awake()
         {
             _source = GetComponent<AudioSource>();
@@ -52,6 +54,8 @@ namespace TarodevController
             _trailOffset = _trailRenderer.localPosition;
             _trailRenderer.SetParent(null);
             _originalTrailTime = _trail.time;
+
+            ScriptFootPositioner = GetComponentInParent<FootPositioner>();
         }
 
         private void OnEnable()
@@ -253,6 +257,9 @@ namespace TarodevController
         private void HandleSpriteFlip(float xInput)
         {
             if (_player.Input.x != 0) _sprite.flipX = xInput < 0;
+
+            ScriptFootPositioner.footDisplacementOnX = -ScriptFootPositioner.footDisplacementOnX;
+            ScriptFootPositioner.otherFoot.footDisplacementOnX = -ScriptFootPositioner.otherFoot.footDisplacementOnX;
         }
 
         #endregion
