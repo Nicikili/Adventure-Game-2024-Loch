@@ -27,7 +27,7 @@ MonoBehaviour:
   VerticalDeadZoneThreshold: 0.3
   HorizontalDeadZoneThreshold: 0.1
   PositionCorrectionMode: 0
-  GroundBaseSpeed: 50
+  GroundBaseSpeed: 20
   Acceleration: 100
   Friction: 120
   AirFrictionMultiplier: 1

@@ -18,7 +18,7 @@ public class OneWayPlaforms : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && player.GetComponent<TarodevController.PlayerController>()._grounded) 
+        if (player.GetComponent<TarodevController.PlayerController>()._interact && player.GetComponent<TarodevController.PlayerController>()._grounded) 
         {
             transform.parent.GetComponent<Collider2D>().enabled = false;
                 Debug.Log("I am falling");

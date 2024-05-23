@@ -17,15 +17,18 @@ public class SpriteHandler : MonoBehaviour
 	public void OnTriggerEnter2D(Collider2D other)
 	{
 		tagToCompare = other.tag;
-
-		foreach (Transform child in findSwitchTargetIn.transform)
-		{
-			if (child.CompareTag(tagToCompare))
+        if (tagToCompare == "collectWing" || tagToCompare == "collectLeg" || tagToCompare == "collectTongue")
+        {
+			foreach (Transform child in findSwitchTargetIn.transform)
 			{
-				Sprite tempTarget = child.GetComponent<SpriteRenderer>().sprite = other.GetComponent<SpriteRenderer>().sprite;
+				if (child.CompareTag(tagToCompare))
+				{
+					Sprite tempTarget = child.GetComponent<SpriteRenderer>().sprite = other.GetComponent<SpriteRenderer>().sprite;
+				}
 			}
+
+			spriteNameBodyPart = other.GetComponent<SpriteRenderer>().sprite.name;
 		}
-		spriteNameBodyPart = other.GetComponent<SpriteRenderer>().sprite.name;
 	}
 
 	public void OnTriggerExit2D(Collider2D other)

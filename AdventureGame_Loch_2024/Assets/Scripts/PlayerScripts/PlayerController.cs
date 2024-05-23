@@ -186,6 +186,12 @@ namespace TarodevController
             {
                 _dashToConsume = true;
             }
+
+            if (_frameInput.Interact)
+            {
+                _interact = true;
+            }
+
         }
 
         #endregion
@@ -238,6 +244,7 @@ namespace TarodevController
         {
             _jumpToConsume = false;
             _dashToConsume = false;
+            _interact = false;
             _forceToApplyThisFrame = Vector2.zero;
             _lastFrameY = Velocity.y;
         }
@@ -585,6 +592,14 @@ namespace TarodevController
         private void ResetAirJumps() => _airJumpsRemaining = Stats.MaxAirJumps;
 
         #endregion
+
+        #region Interact
+
+        public bool _interact;
+
+
+        #endregion
+
 
         #region Dash
 
