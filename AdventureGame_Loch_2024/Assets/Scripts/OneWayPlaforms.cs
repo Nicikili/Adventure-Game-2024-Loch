@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class OneWayPlaforms : MonoBehaviour
 {
-    public bool isUp;
 
+    public bool isUp;
     private GameObject player;
 
     // Start is called before the first frame update
@@ -17,18 +17,19 @@ public class OneWayPlaforms : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // if(Input.GetKeyDown(KeyCode.DownArrow) && player.GetComponent<PlayerController>().isGrounded())
-     //   {
-       //     transform.parent.GetComponent<Collider2D>().enabled = false;
-       // }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow) && player.GetComponent<TarodevController.PlayerController>()._grounded) 
+        {
+            transform.parent.GetComponent<Collider2D>().enabled = false;
+                Debug.Log("I am falling");
+        }
 
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
-        {
+
             transform.parent.GetComponent<Collider2D>().enabled = isUp;
-        }
+
     }
+    
 }

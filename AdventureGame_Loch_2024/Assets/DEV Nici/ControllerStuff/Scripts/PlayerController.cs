@@ -249,9 +249,11 @@ namespace TarodevController
         private const float SKIN_WIDTH = 0.02f;
         private const int RAY_SIDE_COUNT = 5;
         private RaycastHit2D _groundHit;
-        private bool _grounded;
+        public bool _grounded;
         private float _currentStepDownLength;
         private float GrounderLength => _character.StepHeight + SKIN_WIDTH;
+
+
 
         private Vector2 RayPoint => _framePosition + Up * (_character.StepHeight + SKIN_WIDTH);
 
@@ -301,7 +303,7 @@ namespace TarodevController
             }
         }
 
-        private void ToggleGrounded(bool grounded)
+        public void ToggleGrounded(bool grounded)
         {
             _grounded = grounded;
             if (grounded)

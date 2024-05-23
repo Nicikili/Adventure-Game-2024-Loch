@@ -95,8 +95,8 @@ namespace TarodevController
     [Serializable]
     public class CharacterSize
     {
-        public const float STEP_BUFFER = 0.05f;
-        public const float COLLIDER_EDGE_RADIUS = 0.05f;
+        public const float STEP_BUFFER = 0.5f;
+        public const float COLLIDER_EDGE_RADIUS = 0.5f;
 
         [Range(0.1f, 50), Tooltip("How tall you are. This includes a collider and your step height.")]
         public float Height = 1.8f;
