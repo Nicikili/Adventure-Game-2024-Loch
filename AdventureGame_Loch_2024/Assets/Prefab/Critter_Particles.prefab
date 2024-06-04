@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6380405233915560131}
   - component: {fileID: 6302605087017624234}
   - component: {fileID: 2110539831202168121}
+  - component: {fileID: 1332468430915556405}
   m_Layer: 0
   m_Name: Critter_Particles
   m_TagString: Untagged
@@ -169,7 +170,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 15
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -865,12 +866,12 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.81
+      scalar: 10
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4830,3 +4831,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &1332468430915556405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525130358946876384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb53cc4c8d5e043b889e40013b8d54ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minMaxWaitTimeOff: {x: 10, y: 20}
+  _minMaxWaitTimeOn: {x: 1, y: 3}
