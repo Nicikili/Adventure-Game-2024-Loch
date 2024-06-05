@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/DEV Mia\u0308/CUTSCENE1.unity"
     guid: adc60ef63328a41738970088723086d4
+  - enabled: 1
+    path: Assets/MAIN/Scenes/LEVEL1.unity
+    guid: cff6074c2b4c85b429912c0b6de7086f
   m_configObjects: {}
