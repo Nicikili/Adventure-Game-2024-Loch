@@ -20566,6 +20566,7 @@ MonoBehaviour:
   tagToCompare: 
   IK_BonesTarget: {fileID: 0}
   spriteNameBodyPart: 
+  canStealPart: 0
   ScriptStats: {fileID: 0}
 --- !u!114 &5730103804625769710
 MonoBehaviour:
