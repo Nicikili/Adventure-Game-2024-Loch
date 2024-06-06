@@ -77,6 +77,7 @@ public class MenuNavigation : MonoBehaviour
 	}
 	#endregion
 
+	#region ButtonFunctions
 	void ButtonPressed()
 	{
 		if (TimmyLocation == 0) //Credits
@@ -104,10 +105,10 @@ public class MenuNavigation : MonoBehaviour
 
 		if (TimmyLocation == 2) //Exit
 		{
-
+			Application.Quit();
 		}
 	}
-
+	#endregion
 
 	public void Start()
 	{
