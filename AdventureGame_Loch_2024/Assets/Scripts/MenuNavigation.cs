@@ -16,6 +16,9 @@ public class MenuNavigation : MonoBehaviour
 	public GameObject mainMenu; //mainMenu
 	public GameObject creditsMenu; //creditsMenu
 
+	[SerializeField] private Animator _handAnimator;
+	[SerializeField] private Animator _grabAnimator;
+
 	public PlayerInputActions controls;
 	float JumpOffset = 330f; //add f bei Komastellen
 	int TimmyLocation = 1; //Button Credits and Go Back
@@ -110,7 +113,8 @@ public class MenuNavigation : MonoBehaviour
 			//ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/ButtonPressedClick");
 			//ButtonPressedClick.start();
 			controls.MenuNavigation.Disable();
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			_handAnimator.SetTrigger("StartPressed");
 		}
 
 		if (TimmyLocation == 2) //Exit
@@ -134,4 +138,9 @@ public class MenuNavigation : MonoBehaviour
 	{
 		controls.MenuNavigation.Disable();
 	}
+
+	public void TriggerGrab()
+    {
+		_grabAnimator.SetTrigger("Grab");
+    }
 }

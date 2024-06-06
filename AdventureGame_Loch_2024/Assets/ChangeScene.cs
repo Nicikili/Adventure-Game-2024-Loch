@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-   public void LoadScene(string sceneName)
+    [SerializeField] private string _sceneToLoad;
+   public void LoadScene()
     {
-        SceneManager.LoadScene("LEVEL1");
+        SceneManager.LoadScene(_sceneToLoad);
     }
 }
