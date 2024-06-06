@@ -3280,7 +3280,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instance: {fileID: 0}
   Timmy: {fileID: 1770148426}
-  startMenu: 0
+  startMenu: 1
+  mainMenu: {fileID: 148487404}
+  creditsMenu: {fileID: 1752608954}
 --- !u!1 &1836924541
 GameObject:
   m_ObjectHideFlags: 0

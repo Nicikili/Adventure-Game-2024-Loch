@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/DEV Mia\u0308/CUTSCENE1.unity"
+    path: Assets/MAIN/Scenes/MainMenu.unity
+    guid: 5bcc6ca6e17ba1d489c7c544561ecee2
+  - enabled: 1
+    path: "Assets/DEV Mi\xE4/CUTSCENE1.unity"
     guid: adc60ef63328a41738970088723086d4
   - enabled: 1
     path: Assets/MAIN/Scenes/LEVEL1.unity
