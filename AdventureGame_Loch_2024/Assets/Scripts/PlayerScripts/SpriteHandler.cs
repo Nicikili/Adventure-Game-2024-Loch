@@ -24,6 +24,8 @@ public class SpriteHandler : MonoBehaviour
 	public GameObject Mouth;
 	public GameObject Tongue;
 
+	private FMOD.Studio.EventInstance AmbientSound;
+
 	public void Start()
 	{
 		//Important note, if you want to change Variables, add the base value here.
@@ -33,6 +35,9 @@ public class SpriteHandler : MonoBehaviour
 		ScriptStats.ExtraConstantGravity = 120;
 
 		ScriptStats.MaxAirJumps = 0;
+
+		AmbientSound = FMODUnity.RuntimeManager.CreateInstance("event:/AmbientSounds/AmbientSound");
+		AmbientSound.start();
 	}
 
 	public void OnTriggerEnter2D(Collider2D other)

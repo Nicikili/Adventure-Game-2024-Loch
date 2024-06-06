@@ -26,6 +26,8 @@ public class MenuNavigation : MonoBehaviour
 	int TimmyStopRight = 2; //Button Exit
 
 	private FMOD.Studio.EventInstance ButtonPressedClick;
+	private FMOD.Studio.EventInstance MenuSlider;
+	private FMOD.Studio.EventInstance TimmyGrabSound;
 
 	#region PlayerInputActions
 	void Awake()
@@ -47,6 +49,9 @@ public class MenuNavigation : MonoBehaviour
 	{
 		if (startMenu)
 		{
+			ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/MenuSlider");
+			ButtonPressedClick.start();
+
 			Timmy.transform.position = new Vector3(Timmy.transform.position.x - JumpOffset, Timmy.transform.position.y, Timmy.transform.position.z); //moves line left
 			TimmyLocation -= 1;
 			Debug.Log(TimmyLocation);
@@ -67,6 +72,9 @@ public class MenuNavigation : MonoBehaviour
 	{
 		if (startMenu)
 		{
+			ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/MenuSlider");
+			ButtonPressedClick.start();
+
 			Timmy.transform.position = new Vector3(Timmy.transform.position.x + JumpOffset, Timmy.transform.position.y, Timmy.transform.position.z); //moves Line DOWN
 			TimmyLocation += 1;
 			Debug.Log(TimmyLocation);
@@ -142,5 +150,7 @@ public class MenuNavigation : MonoBehaviour
 	public void TriggerGrab()
     {
 		_grabAnimator.SetTrigger("Grab");
-    }
+		TimmyGrabSound = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/TimmyGrab");
+		TimmyGrabSound.start();
+	}
 }
