@@ -19,6 +19,11 @@ public class SpriteHandler : MonoBehaviour
 
 	public PlayerStats ScriptStats;
 
+	public GameObject BerbBase1;
+	public GameObject BerbBase2;
+	public GameObject Mouth;
+	public GameObject Tongue;
+
 	public void Start()
 	{
 		//Important note, if you want to change Variables, add the base value here.
@@ -67,6 +72,10 @@ public class SpriteHandler : MonoBehaviour
 			if (spriteNameBodyPart == "Tongue1"|| spriteNameBodyPart == "Tongue2")
 			{
 				canStealPart = true;
+				BerbBase1.SetActive(false);
+				BerbBase2.SetActive(true);
+				Mouth.SetActive(true);
+				Tongue.SetActive(true);
 
 			}
 			Destroy(other.gameObject);

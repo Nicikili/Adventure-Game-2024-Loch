@@ -91,8 +91,8 @@ public class MenuNavigation : MonoBehaviour
 		{
 			if (startMenu)
 			{
-				//ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/ButtonPressedClick");
-				//ButtonPressedClick.start();
+				ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/ButtonPressedClick");
+				ButtonPressedClick.start();
 				creditsMenu.SetActive(true);
 				mainMenu.SetActive(false);
 				startMenu = false;
@@ -100,8 +100,8 @@ public class MenuNavigation : MonoBehaviour
 
 			else
 			{
-				//ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/ButtonPressedClick");
-				//ButtonPressedClick.start();
+				ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/ButtonPressedClick");
+				ButtonPressedClick.start();
 				creditsMenu.SetActive(false);
 				mainMenu.SetActive(true);
 				startMenu = true;
@@ -110,8 +110,8 @@ public class MenuNavigation : MonoBehaviour
 
 		if (TimmyLocation == 1) //StupidCritter
 		{
-			//ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/ButtonPressedClick");
-			//ButtonPressedClick.start();
+			ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/ButtonPressedClick");
+			ButtonPressedClick.start();
 			controls.MenuNavigation.Disable();
 			//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 			_handAnimator.SetTrigger("StartPressed");
