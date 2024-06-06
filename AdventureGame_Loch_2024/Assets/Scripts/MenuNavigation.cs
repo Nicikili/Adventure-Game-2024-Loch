@@ -18,10 +18,13 @@ public class MenuNavigation : MonoBehaviour
 
 	public PlayerInputActions controls;
 	float JumpOffset = 330f; //add f bei Komastellen
-	int TimmyLocation = 1;
-	int TimmyStopLeft = 0;
-	int TimmyStopRight = 2;
+	int TimmyLocation = 1; //Button Credits and Go Back
+	int TimmyStopLeft = 0; //Button Stupid Critter
+	int TimmyStopRight = 2; //Button Exit
 
+	private FMOD.Studio.EventInstance ButtonPressedClick;
+
+	#region PlayerInputActions
 	void Awake()
 	{
 		if (instance == null)
@@ -34,6 +37,7 @@ public class MenuNavigation : MonoBehaviour
 		controls.MenuNavigation.MoveRight.performed += ctx => MoveTimmyRight();
 		controls.MenuNavigation.Accept.started += ctx => ButtonPressed();
 	}
+	#endregion
 
 	#region TimmyMovement
 	public void MoveTimmyLeft()
@@ -44,12 +48,12 @@ public class MenuNavigation : MonoBehaviour
 			TimmyLocation -= 1;
 			Debug.Log(TimmyLocation);
 
-			if (TimmyLocation == TimmyStopLeft) //stops going to far up
+			if (TimmyLocation == TimmyStopLeft) //stops going to far left, disables controls Left
 			{
 				controls.MenuNavigation.MoveLeft.Disable();
 			}
 
-			if (TimmyLocation < 2) //enables the controls again for DOWN-Movement
+			if (TimmyLocation < 2) //enables the controls again for moving Right
 			{
 				controls.MenuNavigation.MoveRight.Enable();
 			}
@@ -64,12 +68,12 @@ public class MenuNavigation : MonoBehaviour
 			TimmyLocation += 1;
 			Debug.Log(TimmyLocation);
 
-			if (TimmyLocation == TimmyStopRight) //stops doing to far down
+			if (TimmyLocation == TimmyStopRight) //stops going to far right, disables controls right
 			{
 				controls.MenuNavigation.MoveRight.Disable();
 			}
 
-			if (TimmyLocation > 0) //enables the controlls again for UP-Movement
+			if (TimmyLocation > 0) //enables the controlls again for moving Left
 			{
 				controls.MenuNavigation.MoveLeft.Enable();
 			}
@@ -84,6 +88,8 @@ public class MenuNavigation : MonoBehaviour
 		{
 			if (startMenu)
 			{
+				//ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/ButtonPressedClick");
+				//ButtonPressedClick.start();
 				creditsMenu.SetActive(true);
 				mainMenu.SetActive(false);
 				startMenu = false;
@@ -91,6 +97,8 @@ public class MenuNavigation : MonoBehaviour
 
 			else
 			{
+				//ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/ButtonPressedClick");
+				//ButtonPressedClick.start();
 				creditsMenu.SetActive(false);
 				mainMenu.SetActive(true);
 				startMenu = true;
@@ -99,6 +107,8 @@ public class MenuNavigation : MonoBehaviour
 
 		if (TimmyLocation == 1) //StupidCritter
 		{
+			//ButtonPressedClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/ButtonPressedClick");
+			//ButtonPressedClick.start();
 			controls.MenuNavigation.Disable();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
