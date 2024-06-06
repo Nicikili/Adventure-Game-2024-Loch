@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TarodevController;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
@@ -66,7 +67,9 @@ public class SpriteHandler : MonoBehaviour
 			if (spriteNameBodyPart == "Tongue1"|| spriteNameBodyPart == "Tongue2")
 			{
 				canStealPart = true;
+
 			}
+			Destroy(other.gameObject);
 		}
 	}
 
