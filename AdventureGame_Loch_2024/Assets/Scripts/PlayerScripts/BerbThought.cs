@@ -6,6 +6,6 @@ public class BerbThought : MonoBehaviour
 {
 	public void OnTriggerEnter2D(Collider2D other)
 	{
-
+		
 	}
 }

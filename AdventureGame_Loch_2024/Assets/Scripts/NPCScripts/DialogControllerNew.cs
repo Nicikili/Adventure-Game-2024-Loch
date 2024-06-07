@@ -17,18 +17,18 @@ public class DialogControllerNew: MonoBehaviour
 
 	//public GameObject talkMenu;
 	public GameObject choiceMenu;
+	public bool playerInReach = false;
 
 	// Update is called once per frame
 	public void Update()
 	{
-		if (Gamepad.current.aButton.wasPressedThisFrame && !textDebounce) //continue currently on b button because of my weird controller (normaly on a)
+		if (Gamepad.current.aButton.wasPressedThisFrame && !textDebounce && playerInReach) //continue currently on b button because of my weird controller (normaly on a)
 		{
 			textDebounce = true;
 
 			if (StartDialog)
 			{   //animation start
 				//DialogAnimator.SetTrigger("Enter");
-				choiceMenu.SetActive(true);
 				StartDialog = false;
 				textDebounce = false;
 			}
@@ -38,6 +38,22 @@ public class DialogControllerNew: MonoBehaviour
 				NextSentence();
 				Debug.Log("Hello");
 			}
+		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			playerInReach = true;
+		}
+	}
+
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			playerInReach = false;
 		}
 	}
 
@@ -53,7 +69,6 @@ public class DialogControllerNew: MonoBehaviour
 		{ //animation end
 			DialogText.text = "";
 			//DialogAnimator.SetTrigger("Exit");
-			choiceMenu.SetActive(false);
 
 			Index = 0;
 			StartDialog = true;

@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.U2D.Animation;
 
 public class SpriteHandler : MonoBehaviour
@@ -24,7 +25,11 @@ public class SpriteHandler : MonoBehaviour
 	public GameObject Mouth;
 	public GameObject Tongue;
 
+	public GameObject thoughtTargetText;
+
 	private FMOD.Studio.EventInstance AmbientSound;
+
+	private FMOD.Studio.EventInstance BerbVoiceLIne;
 
 	public void Start()
 	{
@@ -43,8 +48,8 @@ public class SpriteHandler : MonoBehaviour
 	public void OnTriggerEnter2D(Collider2D other)
 	{
 		tagToCompare = other.tag;
-        if (tagToCompare == "collectWing" || tagToCompare == "collectLeg" || tagToCompare == "collectTongue")
-        {
+		if (tagToCompare == "collectWing" || tagToCompare == "collectLeg" || tagToCompare == "collectTongue")
+		{
 			foreach (Transform child in findSwitchTargetIn.transform)
 			{
 				if (child.CompareTag(tagToCompare))
@@ -71,10 +76,10 @@ public class SpriteHandler : MonoBehaviour
 			{
 				ScriptStats.JumpPower = 100;
 				ScriptStats.GroundBaseSpeed = 50;
-				ScriptStats.ExtraConstantGravity = 0;
+				ScriptStats.ExtraConstantGravity = 50;
 			}
 
-			if (spriteNameBodyPart == "Tongue1"|| spriteNameBodyPart == "Tongue2")
+			if (spriteNameBodyPart == "Tongue1" || spriteNameBodyPart == "Tongue2")
 			{
 				canStealPart = true;
 				BerbBase1.SetActive(false);
@@ -87,8 +92,18 @@ public class SpriteHandler : MonoBehaviour
 		}
 	}
 
-	public void OnTriggerExit2D(Collider2D other)
+	private void Update()
 	{
+		if (Gamepad.current.xButton.wasPressedThisFrame && ScriptStats.JumpPower == 0)
+		{
+			BerbVoiceLIne = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbVoiceLIne");
+			BerbVoiceLIne.start();
+			thoughtTargetText.SetActive(true);
+		}
 
-	}
+		if (ScriptStats.JumpPower > 0)
+		{
+			thoughtTargetText.SetActive(false);
+		}
+}
 }
