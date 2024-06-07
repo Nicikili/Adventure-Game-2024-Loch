@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TarodevController;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEditor;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -27,6 +28,8 @@ public class SpriteHandler : MonoBehaviour
 
 	public GameObject thoughtTargetText;
 
+	public GameObject Timmy;
+
 	private FMOD.Studio.EventInstance AmbientSound;
 
 	private FMOD.Studio.EventInstance BerbVoiceLIne;
@@ -48,6 +51,12 @@ public class SpriteHandler : MonoBehaviour
 	public void OnTriggerEnter2D(Collider2D other)
 	{
 		tagToCompare = other.tag;
+		if (tagToCompare == "TimmyTrigger1")
+		{
+			Timmy.SetActive(false);
+		}
+
+
 		if (tagToCompare == "collectWing" || tagToCompare == "collectLeg" || tagToCompare == "collectTongue")
 		{
 			foreach (Transform child in findSwitchTargetIn.transform)
