@@ -103,7 +103,7 @@ public class SpriteHandler : MonoBehaviour
 
 	public void Update()
 	{
-		if (Gamepad.current.xButton.wasPressedThisFrame && ScriptStats.JumpPower == 0)
+		if (Gamepad.current.xButton.wasPressedThisFrame && ScriptStats.JumpPower == 0) //Important Note: If the xBox Controller is not on, then this code will give out a Null reference Error.
 		{
 			BerbVoiceLine2 = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbVoiceLine2");
 			BerbVoiceLine2.start();
