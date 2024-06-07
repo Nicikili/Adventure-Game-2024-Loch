@@ -32,7 +32,7 @@ public class SpriteHandler : MonoBehaviour
 
 	private FMOD.Studio.EventInstance AmbientSound;
 
-	private FMOD.Studio.EventInstance BerbVoiceLIne;
+	private FMOD.Studio.EventInstance BerbVoiceLine2;
 
 	public void Start()
 	{
@@ -101,18 +101,18 @@ public class SpriteHandler : MonoBehaviour
 		}
 	}
 
-	private void Update()
+	public void Update()
 	{
 		if (Gamepad.current.xButton.wasPressedThisFrame && ScriptStats.JumpPower == 0)
 		{
-			BerbVoiceLIne = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbVoiceLIne");
-			BerbVoiceLIne.start();
+			BerbVoiceLine2 = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbVoiceLine2");
+			BerbVoiceLine2.start();
 			thoughtTargetText.SetActive(true);
 		}
-
+		
 		if (ScriptStats.JumpPower > 0)
 		{
 			thoughtTargetText.SetActive(false);
 		}
-}
+	}
 }

@@ -20573,6 +20573,7 @@ MonoBehaviour:
   Mouth: {fileID: 0}
   Tongue: {fileID: 0}
   thoughtTargetText: {fileID: 0}
+  Timmy: {fileID: 0}
 --- !u!114 &5730103804625769710
 MonoBehaviour:
   m_ObjectHideFlags: 0
