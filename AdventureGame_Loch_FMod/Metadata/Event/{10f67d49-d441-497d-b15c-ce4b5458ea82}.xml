@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{10f67d49-d441-497d-b15c-ce4b5458ea82}">
 		<property name="name">
-			<value>Berb_VoiceLine</value>
+			<value>BerbVoiceLine1</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -90,7 +90,7 @@
 	<object class="MixerBusPanner" id="{d516bbfc-2489-4e93-8535-24bdb2c0ac34}" />
 	<object class="SingleSound" id="{ac7d4986-b724-46d1-b288-8a1f4e46d267}">
 		<property name="start">
-			<value>7.3000000000000007</value>
+			<value>7.2000000000000002</value>
 		</property>
 		<property name="length">
 			<value>1.5981405895691601</value>

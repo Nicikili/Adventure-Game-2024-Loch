@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{789cbfd1-c549-4db7-bad0-0d0ddaf0cd63}">
 		<property name="name">
-			<value>BerbVoiceLIne</value>
+			<value>BerbVoiceLine2</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
