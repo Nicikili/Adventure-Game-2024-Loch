@@ -488,8 +488,11 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
-  - Ambient
+  - AmbientSounds
+  - Collisions
   - Critter
+  - MarkerSounds
+  - Scatterer
   - UI
   BanksToLoad: []
   LiveUpdatePort: 9264

@@ -20,6 +20,7 @@ TagManager:
   - "L\xF6mp"
   - TimmyTrigger1
   - TimmyTrigger2
+  - Elevator
   layers:
   - Default
   - TransparentFX
