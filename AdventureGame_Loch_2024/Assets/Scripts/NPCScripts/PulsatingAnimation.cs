@@ -10,6 +10,8 @@ public class PulsatingAnimation : MonoBehaviour
 	public float moveDistance = 0.1f; // The maximum distance to move up and down
 	public bool isTalking = false;    // Toggle to start or stop the talking animation
 
+	private FMOD.Studio.EventInstance DialogPopUp;
+
 	[SerializeField] GameObject textBox;
 
 	private Vector3 originalScale;
@@ -30,6 +32,8 @@ public class PulsatingAnimation : MonoBehaviour
 
 	private void StartTalking()
 	{
+		DialogPopUp = FMODUnity.RuntimeManager.CreateInstance("event:/UI/DialogPopUp");
+		DialogPopUp.start();
 		// Create a talking effect by scaling y up and down repeatedly
 		transform.DOScaleY(originalScale.y * scaleFactor, duration)
 				 .SetLoops(-1, LoopType.Yoyo)

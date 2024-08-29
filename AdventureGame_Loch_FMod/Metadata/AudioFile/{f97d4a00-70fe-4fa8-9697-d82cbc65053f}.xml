@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f97d4a00-70fe-4fa8-9697-d82cbc65053f}">
+		<property name="assetPath">
+			<value>HeavySteps2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.2737641723356008</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{764aabe9-688a-47de-ae00-8197aae9dbab}</destination>
+		</relationship>
+	</object>
+</objects>

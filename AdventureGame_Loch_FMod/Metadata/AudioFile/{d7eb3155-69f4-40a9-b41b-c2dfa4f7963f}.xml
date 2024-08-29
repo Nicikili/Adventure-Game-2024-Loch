@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d7eb3155-69f4-40a9-b41b-c2dfa4f7963f}">
+		<property name="assetPath">
+			<value>CrawlingCritters.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>60.542698412698414</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{764aabe9-688a-47de-ae00-8197aae9dbab}</destination>
+		</relationship>
+	</object>
+</objects>

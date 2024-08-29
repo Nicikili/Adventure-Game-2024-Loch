@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 315746191}
   - component: {fileID: 315746190}
   - component: {fileID: 315746194}
-  - component: {fileID: 315746193}
+  - component: {fileID: 315746195}
   m_Layer: 7
   m_Name: FMOD SoundManager
   m_TagString: Untagged
@@ -600,12 +600,12 @@ MonoBehaviour:
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
-  Preload: 0
+  Preload: 1
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 20
+  OverrideMaxDistance: 800
 --- !u!114 &315746191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,43 +627,12 @@ Transform:
   m_GameObject: {fileID: 315746189}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 305, y: 694, z: 0}
+  m_LocalPosition: {x: 310, y: -255, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &315746193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315746189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
 --- !u!114 &315746194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,13 +648,44 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1117315629
-      Data2: 1237982199
-      Data3: -1429595727
-      Data4: -1945393008
-    Path: event:/AmbientSounds/World
+      Data1: 1800811741
+      Data2: 1168451008
+      Data3: -967891833
+      Data4: 700922595
+    Path: event:/AmbientSounds/Background1
   Event: 
-  PlayEvent: 0
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &315746195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315746189}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 538444102
+      Data2: 1331148361
+      Data3: 1531361436
+      Data4: -906000407
+    Path: event:/AmbientSounds/Background2
+  Event: 
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -1221,6 +1221,82 @@ Transform:
   m_LocalPosition: {x: 7.51, y: -7.03, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &437723385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 437723389}
+  - component: {fileID: 437723388}
+  - component: {fileID: 437723387}
+  m_Layer: 7
+  m_Name: FMOD SoundScatter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &437723387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437723385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1116345857
+      Data2: 1252164204
+      Data3: 1135973307
+      Data4: -2085890768
+    Path: event:/AmbientSounds/Scatterer
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 1
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 515.1362
+  OverrideMaxDistance: 515.1362
+--- !u!114 &437723388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437723385}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3833f448f6184459b25ce04bce25b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &437723389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437723385}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 310, y: 104, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -224060,6 +224136,7 @@ GameObject:
   - component: {fileID: 921660770}
   - component: {fileID: 921660769}
   - component: {fileID: 921660772}
+  - component: {fileID: 921660773}
   m_Layer: 10
   m_Name: NewBodyPart1 (7)
   m_TagString: collectWing
@@ -224193,6 +224270,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTheFloor: 1
   onTheCritter: 0
+--- !u!114 &921660773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921660768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1367366465
+      Data2: 1299141107
+      Data3: -1150507904
+      Data4: 1789579936
+    Path: event:/Collisions/TongueAttack
+  Event: 
+  PlayEvent: 5
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &944808639
 GameObject:
   m_ObjectHideFlags: 0
@@ -224592,8 +224700,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2940919102100833572, guid: 2d15d348a114441f68797a9c54c1ef78, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2940919102100833572, guid: 2d15d348a114441f68797a9c54c1ef78, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 25
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6343158576520459514, guid: 2d15d348a114441f68797a9c54c1ef78, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -224616,6 +224728,7 @@ GameObject:
   - component: {fileID: 1048848250}
   - component: {fileID: 1048848249}
   - component: {fileID: 1048848252}
+  - component: {fileID: 1048848253}
   m_Layer: 10
   m_Name: NewBodyPart1 (9)
   m_TagString: collectWing
@@ -224749,6 +224862,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTheFloor: 0
   onTheCritter: 1
+--- !u!114 &1048848253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048848248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1367366465
+      Data2: 1299141107
+      Data3: -1150507904
+      Data4: 1789579936
+    Path: event:/Collisions/TongueAttack
+  Event: 
+  PlayEvent: 5
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1052090615
 GameObject:
   m_ObjectHideFlags: 0
@@ -226340,6 +226484,7 @@ GameObject:
   - component: {fileID: 1481335117}
   - component: {fileID: 1481335119}
   - component: {fileID: 1481335118}
+  - component: {fileID: 1481335120}
   m_Layer: 10
   m_Name: S_Wing3
   m_TagString: collectWing
@@ -226459,6 +226604,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1481335120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481335116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1367366465
+      Data2: 1299141107
+      Data3: -1150507904
+      Data4: 1789579936
+    Path: event:/Collisions/TongueAttack
+  Event: 
+  PlayEvent: 5
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1488870558
 GameObject:
   m_ObjectHideFlags: 0
@@ -228138,6 +228314,7 @@ SceneRoots:
   - {fileID: 1278141199}
   - {fileID: 368595101}
   - {fileID: 315746192}
+  - {fileID: 437723389}
   - {fileID: 1039863322}
   - {fileID: 1177404800}
   - {fileID: 1973937350}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{39e943be-9040-4a02-a23d-e13a69e7ef4f}">
+		<property name="assetPath">
+			<value>ScarySoundDeep2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.6576870748299317</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{764aabe9-688a-47de-ae00-8197aae9dbab}</destination>
+		</relationship>
+	</object>
+</objects>

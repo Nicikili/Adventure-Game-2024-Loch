@@ -12,6 +12,8 @@ using UnityEngine.U2D.Animation;
 
 public class SpriteHandler : MonoBehaviour
 {
+	private FMOD.Studio.EventInstance BodyStealSucess;
+
 	public GameObject findSwitchTargetIn;
 	public string tagToCompare;
 
@@ -54,6 +56,7 @@ public class SpriteHandler : MonoBehaviour
 
 		if (tagToCompare == "collectWing" || tagToCompare == "collectLeg" || tagToCompare == "collectTongue")
 		{
+			
 			foreach (Transform child in findSwitchTargetIn.transform)
 			{
 				if (child.CompareTag(tagToCompare))
