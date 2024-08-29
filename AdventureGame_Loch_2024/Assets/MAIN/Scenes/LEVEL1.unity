@@ -679,11 +679,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: event:/AmbientsSounds/Overworld1
+      Data1: -1117315629
+      Data2: 1237982199
+      Data3: -1429595727
+      Data4: -1945393008
+    Path: event:/AmbientSounds/World
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -227361,6 +227361,7 @@ GameObject:
   - component: {fileID: 1773750467}
   - component: {fileID: 1773750469}
   - component: {fileID: 1773750468}
+  - component: {fileID: 1773750470}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Elevator
@@ -227413,10 +227414,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.39684498, y: 0}
+  m_Offset: {x: -0.39684486, y: -1.2756319}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -227427,7 +227428,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.4696655, y: 1}
+  m_Size: {x: 5.4696655, y: 3.5512638}
   m_EdgeRadius: 0
 --- !u!212 &1773750469
 SpriteRenderer:
@@ -227481,6 +227482,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1773750470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773750466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1584233123
+      Data2: 1324934521
+      Data3: -968466259
+      Data4: -1070021173
+    Path: event:/Collisions/BucketCollision
+  Event: 
+  PlayEvent: 9
+  StopEvent: 0
+  AllowFadeout: 0
+  TriggerOnce: 0
+  Preload: 1
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1795613011
 GameObject:
   m_ObjectHideFlags: 0

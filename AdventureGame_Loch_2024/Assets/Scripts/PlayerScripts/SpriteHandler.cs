@@ -30,16 +30,7 @@ public class SpriteHandler : MonoBehaviour
 
 	public GameObject Timmy;
 
-	private FMOD.Studio.EventInstance AmbientSound;
-
 	private FMOD.Studio.EventInstance BerbVoiceLine2;
-
-
-	public void Awake()
-	{
-		AmbientSound = FMODUnity.RuntimeManager.CreateInstance("event:/AmbientSounds/World");
-		AmbientSound.start();
-	}
 
 	public void Start()
 	{
