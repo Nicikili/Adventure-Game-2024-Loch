@@ -456,6 +456,7 @@ namespace TarodevController
         private void PlayerOnToggledPlayer(bool on)
         {
             _effectsParent.SetActive(on);
+
         }
 
         #region Helpers
