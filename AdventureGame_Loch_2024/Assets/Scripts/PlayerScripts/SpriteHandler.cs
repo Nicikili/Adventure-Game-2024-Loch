@@ -22,6 +22,7 @@ public class SpriteHandler : MonoBehaviour
 	public bool canStealPart = false;
 
 	public PlayerStats ScriptStats;
+	public PlayerAnimator ScriptAnimator;
 
 	public GameObject BerbBase1;
 	public GameObject BerbBase2;
@@ -43,6 +44,7 @@ public class SpriteHandler : MonoBehaviour
 		ScriptStats.ExtraConstantGravity = 120;
 
 		ScriptStats.MaxAirJumps = 0;
+		ScriptStats.WingsOnBerbit = 0;
 	}
 
 	public void OnTriggerEnter2D(Collider2D other)
@@ -71,12 +73,14 @@ public class SpriteHandler : MonoBehaviour
 			{
 				ScriptStats.JumpPower = 80;
 				ScriptStats.GroundBaseSpeed = 30;
+				ScriptStats.WingsOnBerbit = 1;
 			}
 
 			if (spriteNameBodyPart == "S_Wing2")
 			{
 				ScriptStats.JumpPower = 120;
 				ScriptStats.GroundBaseSpeed = 40;
+				ScriptStats.WingsOnBerbit = 2;
 			}
 
 			if (spriteNameBodyPart == "S_Wing3")
@@ -84,6 +88,7 @@ public class SpriteHandler : MonoBehaviour
 				ScriptStats.JumpPower = 100;
 				ScriptStats.GroundBaseSpeed = 50;
 				ScriptStats.ExtraConstantGravity = 50;
+				ScriptStats.WingsOnBerbit = 3;
 			}
 
 			if (spriteNameBodyPart == "Tongue1" || spriteNameBodyPart == "Tongue2")

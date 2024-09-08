@@ -14,7 +14,6 @@ namespace TarodevController
         [SerializeField] private Transform _trailRenderer;
         [SerializeField] private SpriteRenderer _sprite;
         [SerializeField] private TrailRenderer _trail;
-        
 
         [Header("Particles")] [SerializeField] private ParticleSystem _jumpParticles;
         [SerializeField] private ParticleSystem _launchParticles;
@@ -27,13 +26,14 @@ namespace TarodevController
 
         [Header("Audio Clips")] [SerializeField]
         private AudioClip _doubleJumpClip;
+		public FMOD.Studio.EventInstance BerbitJump;
+		public FMOD.Studio.EventInstance BerbitLanding;
 
-        [SerializeField] private AudioClip _dashClip;
+		[SerializeField] private AudioClip _dashClip;
         [SerializeField] private AudioClip[] _jumpClips;
         [SerializeField] private AudioClip[] _splats;
         [SerializeField] private AudioClip[] _slideClips;
         [SerializeField] private AudioClip _wallGrabClip;
-        
 
         private AudioSource _source;
         private IPlayerController _player;
@@ -45,10 +45,10 @@ namespace TarodevController
         private float _lastNonZeroXInput = 1; // Default to 1 to face right initially
         private bool _isFacingRight = true;
 
+		public FootPositioner ScriptFootPositioner;
+		public SpriteHandler SpriteHandlerScript;
 
-        public FootPositioner ScriptFootPositioner;
-
-        private void Awake()
+		private void Awake()
         {
             _source = GetComponent<AudioSource>();
             _player = GetComponentInParent<IPlayerController>();
@@ -351,6 +351,23 @@ namespace TarodevController
         #endregion
 
         #region Event Callbacks
+        private void SwitchJumpSound()
+        {
+            if (SpriteHandlerScript.spriteNameBodyPart == "S_Wing1")
+            {
+				BerbitJump = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbitJumpSmall");
+			}
+
+			if (SpriteHandlerScript.spriteNameBodyPart == "S_Wing2")
+			{
+				BerbitJump = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbitJumpMedium");
+			}
+
+			if (SpriteHandlerScript.spriteNameBodyPart == "S_Wing3")
+			{
+				BerbitJump = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbitJumpBig");
+			}
+		}
 
         private void OnJumped(JumpType type)
         {
@@ -359,9 +376,11 @@ namespace TarodevController
                 _anim.SetTrigger(JumpKey);
                 _anim.ResetTrigger(GroundedKey);
                 PlayRandomSound(_jumpClips, 0.2f, Random.Range(0.98f, 1.02f));
+                SwitchJumpSound();
+                BerbitJump.start();
 
-                // Only play particles when grounded (avoid coyote)
-                if (type is JumpType.Jump)
+				// Only play particles when grounded (avoid coyote)
+				if (type is JumpType.Jump)
                 {
                     SetColor(_jumpParticles);
                     SetColor(_launchParticles);
@@ -393,7 +412,9 @@ namespace TarodevController
                 _landParticles.transform.localScale = Vector3.one * Mathf.InverseLerp(0, 40, impact);
                 SetColor(_landParticles);
                 _landParticles.Play();
-            }
+				BerbitLanding = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbitLanding");
+				BerbitLanding.start();
+			}
             else
             {
                 _anim.SetBool(GroundedKey, false);

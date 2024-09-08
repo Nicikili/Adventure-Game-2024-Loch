@@ -679,11 +679,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 538444102
-      Data2: 1331148361
-      Data3: 1531361436
-      Data4: -906000407
-    Path: event:/AmbientSounds/Background2
+      Data1: 1559958404
+      Data2: 1239341870
+      Data3: 756047488
+      Data4: -668431598
+    Path: event:/AmbientSounds/TimeRunsOut
   Event: 
   PlayEvent: 1
   StopEvent: 0
@@ -3039,6 +3039,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.000000049359485
       objectReference: {fileID: 0}
+    - target: {fileID: 3054942120376258713, guid: a758f4c47c8e05242aa9c708a1c99374, type: 3}
+      propertyPath: SpriteHandlerScript
+      value: 
+      objectReference: {fileID: 1578653353}
     - target: {fileID: 3054942120541986084, guid: a758f4c47c8e05242aa9c708a1c99374, type: 3}
       propertyPath: m_Name
       value: Player
@@ -227020,6 +227024,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPlayerCollidesWith: 
+--- !u!114 &1578653353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 143672296940016837, guid: a758f4c47c8e05242aa9c708a1c99374, type: 3}
+  m_PrefabInstance: {fileID: 786318517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165249601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c648cc40c1cb78e48b1ea5188b50ab9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1584872693
 GameObject:
   m_ObjectHideFlags: 0

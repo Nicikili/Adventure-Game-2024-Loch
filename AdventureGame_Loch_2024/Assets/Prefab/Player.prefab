@@ -20240,6 +20240,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a42ad5ad97b59d042bb11c6713a26100, type: 3}
   _wallGrabClip: {fileID: 8300000, guid: 9c4b2bf8e30a90a4a95c5285a6e8e6f7, type: 3}
   ScriptFootPositioner: {fileID: 5730103804625769710}
+  SpriteHandlerScript: {fileID: 0}
   _squishMinMaxX:
     m_Mode: 2
     m_CurveMultiplier: 1
@@ -20568,6 +20569,7 @@ MonoBehaviour:
   spriteNameBodyPart: 
   canStealPart: 0
   ScriptStats: {fileID: 0}
+  ScriptAnimator: {fileID: 0}
   BerbBase1: {fileID: 0}
   BerbBase2: {fileID: 0}
   Mouth: {fileID: 0}

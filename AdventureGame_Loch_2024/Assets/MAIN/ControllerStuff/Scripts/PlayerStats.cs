@@ -37,6 +37,7 @@ namespace TarodevController
         public float JumpPower = 20;
         public float EndJumpEarlyExtraForceMultiplier = 3;
         public int MaxAirJumps = 1;
+        public int WingsOnBerbit = 0;
 
         // Dash
         [Header("Dash"), Space] public bool AllowDash = true;
