@@ -1,7 +1,10 @@
+using TarodevController;
 using UnityEngine;
 
 public class FootPositioner : MonoBehaviour
 {
+    public PlayerController PlayerControllerScript;
+
     [Header("Detecting Balance")]
     public GameObject playerObj;
     public Transform target;
@@ -23,6 +26,7 @@ public class FootPositioner : MonoBehaviour
     private Vector3 initialTargetOffset;
 
 	private FMOD.Studio.EventInstance BerbitStep;
+	private FMOD.Studio.EventInstance BerbitTerrain;
 
 	private void Start()
     {
@@ -32,7 +36,7 @@ public class FootPositioner : MonoBehaviour
 
     private void Update()
     {
-        UpdateBalance();
+		UpdateBalance();
         UpdateJumpState();
 
         bool thisFootCanMove = otherFoot.lerp > 1 && lerp > otherFoot.lerp;
@@ -92,8 +96,11 @@ public class FootPositioner : MonoBehaviour
             midPos = startPos + posDiff / 2f + new Vector3(0, stepSize * 0.8f);
         }
 
-		BerbitStep = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbitStep");
-		BerbitStep.start();
+        if (PlayerControllerScript._grounded == true)
+        {
+			BerbitStep = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbitStep");
+			BerbitStep.start();
+		}
 	}
 
     private void UpdateJumpState()

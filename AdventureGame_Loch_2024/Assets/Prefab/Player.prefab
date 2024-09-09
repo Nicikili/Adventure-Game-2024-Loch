@@ -20588,6 +20588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87658dc3b347da64098d7bcd93e9ef2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerControllerScript: {fileID: 0}
   playerObj: {fileID: 3054942120541986084}
   target: {fileID: 0}
   otherFoot: {fileID: 8840609090158792207}
@@ -20608,6 +20609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87658dc3b347da64098d7bcd93e9ef2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerControllerScript: {fileID: 0}
   playerObj: {fileID: 3054942120541986084}
   target: {fileID: 0}
   otherFoot: {fileID: 5730103804625769710}

@@ -21,6 +21,7 @@ TagManager:
   - TimmyTrigger1
   - TimmyTrigger2
   - Elevator
+  - isOnGround
   layers:
   - Default
   - TransparentFX
@@ -33,8 +34,8 @@ TagManager:
   - Climbable
   - Ladders
   - TriggerColliders
-  - 
-  - 
+  - Pencil
+  - Spiderweb
   - 
   - 
   - 

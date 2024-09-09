@@ -346,13 +346,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 182108175}
+  - component: {fileID: 182108176}
+  - component: {fileID: 182108177}
   m_Layer: 7
   m_Name: CheckUnderground
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &182108175
 Transform:
   m_ObjectHideFlags: 0
@@ -362,12 +364,46 @@ Transform:
   m_GameObject: {fileID: 182108174}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1578653341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &182108176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182108174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c228d0e88d78e7e4f9641d6f4ea03716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTerrain: 0
+--- !u!65 &182108177
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182108174}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &201029264
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +1025,14 @@ PrefabInstance:
     - target: {fileID: 3775104618324812647, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
       propertyPath: m_Name
       value: SpiderWeb2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775104618324812647, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775104618324812647, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
+      propertyPath: m_TagString
+      value: isOnGround
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6289224570978106444, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
@@ -1943,6 +1987,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpiderWeb1
       objectReference: {fileID: 0}
+    - target: {fileID: 3775104618324812647, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775104618324812647, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
+      propertyPath: m_TagString
+      value: isOnGround
+      objectReference: {fileID: 0}
     - target: {fileID: 3853158079295364260, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9
@@ -2895,7 +2947,7 @@ GameObject:
   - component: {fileID: 761112271}
   m_Layer: 0
   m_Name: Stair (1)
-  m_TagString: Untagged
+  m_TagString: isOnGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3142,6 +3194,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 944808640}
+    - target: {fileID: 5730103804625769710, guid: a758f4c47c8e05242aa9c708a1c99374, type: 3}
+      propertyPath: checkGroundScript
+      value: 
+      objectReference: {fileID: 182108176}
+    - target: {fileID: 5730103804625769710, guid: a758f4c47c8e05242aa9c708a1c99374, type: 3}
+      propertyPath: PlayerControllerScript
+      value: 
+      objectReference: {fileID: 1578653360}
     - target: {fileID: 6011966786728629906, guid: a758f4c47c8e05242aa9c708a1c99374, type: 3}
       propertyPath: m_TagString
       value: collectWing
@@ -3166,6 +3226,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 280064731}
+    - target: {fileID: 8840609090158792207, guid: a758f4c47c8e05242aa9c708a1c99374, type: 3}
+      propertyPath: isBalanced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840609090158792207, guid: a758f4c47c8e05242aa9c708a1c99374, type: 3}
+      propertyPath: checkGroundScript
+      value: 
+      objectReference: {fileID: 182108176}
+    - target: {fileID: 8840609090158792207, guid: a758f4c47c8e05242aa9c708a1c99374, type: 3}
+      propertyPath: PlayerControllerScript
+      value: 
+      objectReference: {fileID: 1578653360}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -226051,7 +226123,7 @@ GameObject:
   - component: {fileID: 1253234416}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: isOnGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227099,6 +227171,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c648cc40c1cb78e48b1ea5188b50ab9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1578653360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3774935766918746479, guid: a758f4c47c8e05242aa9c708a1c99374, type: 3}
+  m_PrefabInstance: {fileID: 786318517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165249601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c89b8855ab650ac489f1f1b5f2a94751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1584872693
@@ -228414,6 +228497,22 @@ PrefabInstance:
     - target: {fileID: 3775104618324812647, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
       propertyPath: m_Name
       value: Stair
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775104618324812647, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775104618324812647, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
+      propertyPath: m_TagString
+      value: isOnGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289224570978106444, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289224570978106444, guid: 554033bb284db6d4eaed0f0b8971e6b5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
