@@ -29,6 +29,7 @@ public class MenuNavigation : MonoBehaviour
 	private FMOD.Studio.EventInstance MenuSlider;
 	private FMOD.Studio.EventInstance TimmyGrabSound;
 	private FMOD.Studio.EventInstance Berb_VoiceLine1;
+	private FMOD.Studio.EventInstance BerbitFall;
 
 	#region PlayerInputActions
 	void Awake()
@@ -154,6 +155,9 @@ public class MenuNavigation : MonoBehaviour
 
 		TimmyGrabSound = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/TimmyGrab");
 		TimmyGrabSound.start();
+
+		BerbitFall = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbitFall");
+		BerbitFall.start();
 
 		Berb_VoiceLine1 = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbVoiceLine1");
 		Berb_VoiceLine1.start();

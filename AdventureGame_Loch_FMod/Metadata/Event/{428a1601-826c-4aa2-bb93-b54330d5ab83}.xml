@@ -372,6 +372,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{bb116a80-4114-4c0f-9ce0-9eb21cb80093}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<property name="name">
 			<value>Critter</value>
 		</property>
@@ -938,7 +941,14 @@
 			<destination>{2f679e7f-2a81-47c8-aa24-ecc2ec9bf366}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{57e985f8-e81d-45e1-92a2-1bcac2d80240}" />
+	<object class="MixerBusPanner" id="{57e985f8-e81d-45e1-92a2-1bcac2d80240}">
+		<property name="surroundPanDirection">
+			<value>-5.19442892</value>
+		</property>
+		<property name="surroundPanExtent">
+			<value>148.802185</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{c4050c13-7e47-48f8-89cc-9148c1fb76b0}">
 		<relationship name="effects">
 			<destination>{82811c83-4a48-4c30-94d2-64101ec2a125}</destination>

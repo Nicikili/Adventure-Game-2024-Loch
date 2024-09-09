@@ -224915,11 +224915,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1367366465
-      Data2: 1299141107
-      Data3: -1150507904
-      Data4: 1789579936
-    Path: event:/Collisions/TongueAttack
+      Data1: 409987424
+      Data2: 1130318710
+      Data3: 550601610
+      Data4: -342701301
+    Path: event:/Collisions/StealBodyPartSucess
   Event: 
   PlayEvent: 5
   StopEvent: 0
@@ -225536,6 +225536,7 @@ GameObject:
   - component: {fileID: 1137981754}
   - component: {fileID: 1137981753}
   - component: {fileID: 1137981752}
+  - component: {fileID: 1137981755}
   m_Layer: 0
   m_Name: NewBodyPart1 (2)
   m_TagString: collectTongue
@@ -225655,6 +225656,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1137981755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137981751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1367366465
+      Data2: 1299141107
+      Data3: -1150507904
+      Data4: 1789579936
+    Path: event:/Collisions/TongueAttack
+  Event: 
+  PlayEvent: 5
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1165249601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3054942120541986084, guid: a758f4c47c8e05242aa9c708a1c99374, type: 3}
@@ -226657,11 +226689,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1367366465
-      Data2: 1299141107
-      Data3: -1150507904
-      Data4: 1789579936
-    Path: event:/Collisions/TongueAttack
+      Data1: 409987424
+      Data2: 1130318710
+      Data3: 550601610
+      Data4: -342701301
+    Path: event:/Collisions/StealBodyPartSucess
   Event: 
   PlayEvent: 5
   StopEvent: 0
@@ -227346,6 +227378,7 @@ GameObject:
   - component: {fileID: 1721094581}
   - component: {fileID: 1721094582}
   - component: {fileID: 1721094583}
+  - component: {fileID: 1721094584}
   m_Layer: 10
   m_Name: Mia
   m_TagString: Untagged
@@ -227498,6 +227531,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 38.399998, y: 21.599998}
   m_EdgeRadius: 0
+--- !u!114 &1721094584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721094578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 588336680
+      Data2: 1205138035
+      Data3: -1005613168
+      Data4: 1036058761
+    Path: event:/CritterSounds/NPCRedVoiceLine
+  Event: 
+  PlayEvent: 5
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1752172488
 GameObject:
   m_ObjectHideFlags: 0

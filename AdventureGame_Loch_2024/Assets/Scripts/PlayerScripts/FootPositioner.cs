@@ -22,11 +22,13 @@ public class FootPositioner : MonoBehaviour
     private bool isJumping = false;
     private Vector3 initialTargetOffset;
 
-    private void Start()
+	private FMOD.Studio.EventInstance BerbitStep;
+
+	private void Start()
     {
         startPos = midPos = endPos = target.position;
         initialTargetOffset = target.position - playerObj.transform.position;
-    }
+	}
 
     private void Update()
     {
@@ -38,7 +40,7 @@ public class FootPositioner : MonoBehaviour
         if (!isBalanced && lerp > 1 && thisFootCanMove)
         {
             CalculateNewStep();
-        }
+		}
 
         if (isJumping)
         {
@@ -89,7 +91,10 @@ public class FootPositioner : MonoBehaviour
             float stepSize = Vector3.Distance(startPos, endPos);
             midPos = startPos + posDiff / 2f + new Vector3(0, stepSize * 0.8f);
         }
-    }
+
+		BerbitStep = FMODUnity.RuntimeManager.CreateInstance("event:/CritterSounds/BerbitStep");
+		BerbitStep.start();
+	}
 
     private void UpdateJumpState()
     {
